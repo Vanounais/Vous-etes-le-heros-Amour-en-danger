@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    color: white;
+}
+
+html {
+    background-image: linear-gradient(25deg,#1D0017, #3E0031, #27001F);
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.game {
+    display: flex;
+    background: linear-gradient(20deg, #131313,#262626);
+    width: clamp(400px, 50vw,600px);
+    border-radius: 20px;
+    box-shadow: 0px 0px 50px 20px rgba(0,0,0,0.5);
+    min-height: 100px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameTitle {
+    width: 80%;
+    text-align: center;
+    font-size: clamp(24px, 5vh, 42px);
+    z-index: 1;
+    margin-top: min(30px, 3vh);
+    margin-bottom: min(20px, 3vh);
+}
+
+.titre {
+    width: 80%;
+    text-align: center;
+    font-size: clamp( 18px, 4vh, 36px);
+    z-index: 1;
+    margin-bottom: min(10px, 2vh);
+}
+
+.texte {
+    width: 80%;
+    font-size: clamp(12px, 3vh, 24px);
+    z-index: 1;
+    margin-bottom: 2vh;
+}
+
+.chic {
+    display: block;
+    height: 30vh;
+    max-height: 350px;
+    min-height: 150px;
+    align-self: center;
+    z-index: 0;
+}
+
+.bouton {
+    background: linear-gradient(0deg,#5F004C, #DB0073);
+    width: 90%;
+    height: clamp(24px, 4vh, 40px);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    text-align: center;
+    font-size: clamp(14px, 3vh, 20px);
+    line-height: clamp(24px, 4vh, 40px);
+    z-index: 1;
+    margin-bottom: clamp(10px, 2vh, 20px);
+    transition-duration: 0.3s;
+}
+
+.bouton:hover {
+    background: linear-gradient(0deg,#5F004C, #D30000);
+    scale: 105%;
+}
