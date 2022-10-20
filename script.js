@@ -175,8 +175,11 @@ let toggleBagueMariage = function() {
 let actNaturaliste = function() {
     if (optNaturaliste == true) {
         goToChapter("mortNaturaliste")
+        optNaturaliste = false;
+        optPiedDeBiche = false;
     } else if (optNaturaliste == false && optPiedDeBiche == true) {
         goToChapter("arriverFetePiedDeBiche")
+        optPiedDeBiche = false;
     } else {
         goToChapter("arriverFete")
     }
