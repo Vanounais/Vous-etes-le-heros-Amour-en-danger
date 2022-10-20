@@ -99,7 +99,7 @@ let chapterObj = {
         subtitle: "Il fais froid",
         texte: "Tout compte fais mettre des vetement aurais ete une sage decison, il fais froid et de plus une patrouille de police passe a coter de vous et vous arrete pour nudite sur la vois publique.<br><br>Game Over - Quelle idee aussi de partir a poil pour avouer son amour a Magenta.",
         img: "assets/image/killer.png",
-        options:[{text: "Suivant", action: 'goToChapter("contexte")'}]
+        options:[{text: "Recommencer", action: 'goToChapter("contexte")'}]
     },
     feteSansMagenta:{
         subtitle: "Une Fete sans Magenta",
@@ -142,7 +142,7 @@ let chapterObj = {
         subtitle: "Un Hero est mort",
         texte: "Vous executer votre plan douteux et vous dirigez directement chez magenta, vous entrez par la porte qui est rester grande ouverte. Vous entamez le plus gros cris de guerre que l'humanite a connue pour finalement vous faire poignarder 3 fois dans le dos.<br><br>Game Over - Entree pas du tout discrete",
         img: "assets/image/killer.png",
-        options:[{text: "Suivant", action: 'goToChapter("contexte")'}]
+        options:[{text: "Recommencer", action: 'goToChapter("contexte")'}]
     },
 };
 
