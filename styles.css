@@ -3,6 +3,11 @@
     color: white;
 }
 
+@font-face {
+    src: url("assets/fonts/LasEnter.ttf") format("truetype");
+    font-family: "Kinlove";
+}
+
 html {
     background-image: linear-gradient(25deg,#1D0017, #3E0031, #27001F);
     margin: 0;
@@ -31,9 +36,21 @@ body {
     align-items: center;
 }
 
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
 .gameTitle {
+    color: #DB0073;
+    text-shadow: 5px 5px 3px #5F004C;;
     width: 80%;
     text-align: center;
+    font-family: "Kinlove";
     font-size: clamp(24px, 5vh, 42px);
     z-index: 1;
     margin-top: min(30px, 3vh);
@@ -69,16 +86,17 @@ body {
     width: 90%;
     height: clamp(24px, 4vh, 40px);
     border-radius: 20px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
     text-align: center;
     font-size: clamp(14px, 3vh, 20px);
     line-height: clamp(24px, 4vh, 40px);
     z-index: 1;
     margin-bottom: clamp(10px, 2vh, 20px);
     transition-duration: 0.3s;
+    border: 0px;
 }
 
 .bouton:hover {
-    background: linear-gradient(0deg,#5F004C, #D30000);
+    background: linear-gradient(0deg,#690000, #D30000);
     scale: 105%;
 }
