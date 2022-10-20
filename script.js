@@ -111,7 +111,7 @@ let chapterObj = {
         subtitle: "Le Marathon",
         texte: "Sans meme reflechir vous entammez le plus gros sprint de votre vie jusqu'a chez elle. Une fois arrivez vous constatez que sa porte est grande ouverte et que qqn semble provoquer un grand desorde a l'interieur. il vaudrait mieu reflechir un peu avant d'entrer.",
         img: "assets/image/killer.png",
-        options:[{text: "Suivant", action: 'goToChapter("contexte")'}]
+        options:[{text: "Suivant", action: 'goToChapter("laFinApproche")'}]
     },
     demanderDetail:{
         subtitle: "Magenta a des ennuis",
@@ -129,7 +129,7 @@ let chapterObj = {
         subtitle: "La police",
         texte: "Vous appelez la Police mais ceux-si vous previenne que la patrouille la plus proche se trouve a une vingtaine de minute de Magenta. Vous decidez donc d'aller sans atendre chez Magenta pour lui venir en aide. Une fois sur place vous remarquer la porte est grande ouverte. il vaudrait mieu reflechir un peu avant d'entrer.",
         img: "assets/image/killer.png",
-        options:[{text: "Suivant", action: 'goToChapter("contexte")'}]
+        options:[{text: "Suivant", action: 'goToChapter("laFinApproche")'}]
     },
     jouerHero:{
         subtitle: "Vous etes un Hero",
@@ -144,6 +144,25 @@ let chapterObj = {
         img: "assets/image/killer.png",
         options:[{text: "Recommencer", action: 'goToChapter("contexte")'}]
     },
+     // Une fin epoustouflante ! Mais est-ce la veritable fin ???
+    laFinApproche:{
+        subtitle: "Le Sprint",
+        texte: "Vous voyez soudainement Magenta courire hors de la maison a toute vitesse poursuivie par un homme avec un couteau. Que faite vous?",
+        img: "assets/image/chic.png",
+        options:[{text: "Defendre Magenta", action: 'goToChapter("unAvion")'},{text: "Courire pour votre vie", action: 'goToChapter("unAvion")'}]
+    },
+    unAvion:{
+        subtitle: "Hein?! QUOI?!",
+        texte: "Avant meme que vous n'ayez le temps de bouger vous voyer rentrer un avion en flamme (surement ateint d'un probleme moteur) rentrer dans votre champ de vision et s'ecraser directement sur le Psycopathe qui coursait Magenta detruisant sa maison par la meme occasion. Magenta est heureusement epargne par cet accident.",
+        img: "assets/image/chic.png",
+        options:[{text: "Suivant", action: 'goToChapter("youDidIt")'}]
+    },
+    youDidIt:{
+        subtitle: "C'est vraiment ca la fin?!",
+        texte: "Objectif accomplie, Magenta suite a toutes ces emotions se colle contre vous en attendant les secours. De plus, sa maison etant detruite elle aura surement besoin de quelqu'un pour l'heberger dans les prochains mois.<br><br>FIN - Ce n'est surement pas la fin au quel vous vous attendiez et a vrais dire je ne m'y attendais pas non plus.",
+        img: "assets/image/chic.png",
+        options:[{text: "Recommencer", action: 'goToChapter("contexte")'}]
+    }
 };
 
 // ------------------------------------------------------------------------------------------------------
