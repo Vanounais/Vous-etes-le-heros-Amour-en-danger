@@ -160,7 +160,7 @@ let chapterObj = {
     youDidIt:{
         subtitle: "C'est vraiment ca la fin?!",
         texte: "Objectif accomplie, Magenta suite a toutes ces emotions se colle contre vous en attendant les secours. De plus, sa maison etant detruite elle aura surement besoin de quelqu'un pour l'heberger dans les prochains mois.<br><br>FIN - Ce n'est surement pas la fin au quel vous vous attendiez et a vrais dire je ne m'y attendais pas non plus.",
-        img: "assets/image/chic.png",
+        img: "assets/image/couple.png",
         options:[{text: "Recommencer", action: 'goToChapter("contexte")'}]
     }
 };
