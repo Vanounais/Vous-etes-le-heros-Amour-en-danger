@@ -99,6 +99,7 @@ let chapterObj = {
         subtitle: "Il fais froid",
         texte: "Tout compte fais mettre des vetement aurais ete une sage decison, il fais froid et de plus une patrouille de police passe a coter de vous et vous arrete pour nudite sur la vois publique.<br><br>Game Over - Quelle idee aussi de partir a poil pour avouer son amour a Magenta.",
         img: "assets/image/killer.png",
+        video: "assets/video/naked.mp4",
         options:[{text: "Recommencer", action: 'goToChapter("contexte")'}]
     },
     feteSansMagenta:{
@@ -142,9 +143,10 @@ let chapterObj = {
         subtitle: "Un Hero est mort",
         texte: "Vous executer votre plan douteux et vous dirigez directement chez magenta, vous entrez par la porte qui est rester grande ouverte. Vous entamez le plus gros cris de guerre que l'humanite a connue pour finalement vous faire poignarder 3 fois dans le dos.<br><br>Game Over - Entree pas du tout discrete",
         img: "assets/image/killer.png",
+        video: "assets/video/fbiOpen.mp4",
         options:[{text: "Recommencer", action: 'goToChapter("contexte")'}]
     },
-     // Une fin epoustouflante ! Mais est-ce la veritable fin ???
+    // Une fin epoustouflante ! Mais est-ce la veritable fin ???
     laFinApproche:{
         subtitle: "Le Sprint",
         texte: "Vous voyez soudainement Magenta courire hors de la maison a toute vitesse poursuivie par un homme avec un couteau. Que faite vous?",
@@ -153,7 +155,7 @@ let chapterObj = {
     },
     unAvion:{
         subtitle: "Hein?! QUOI?!",
-        texte: "Avant meme que vous n'ayez le temps de bouger vous voyer rentrer un avion en flamme (surement ateint d'un probleme moteur) rentrer dans votre champ de vision et s'ecraser directement sur le Psycopathe qui coursait Magenta detruisant sa maison par la meme occasion. Magenta est heureusement epargne par cet accident.",
+        texte: "Avant meme que vous n'ayez le temps de bouger vous voyer un avion en flamme (surement ateint d'un probleme moteur) rentrer dans votre champ de vision et s'ecraser directement sur le Psycopathe qui coursait Magenta detruisant sa maison par la meme occasion. Magenta est heureusement epargne par cet accident.",
         img: "assets/image/chic.png",
         options:[{text: "Suivant", action: 'goToChapter("youDidIt")'}]
     },
@@ -165,56 +167,85 @@ let chapterObj = {
     }
 };
 
-// ------------------------------------------------------------------------------------------------------
+// ----------------------------------------------- Cle d'Evenement -------------------------------------------------------
 
-let optNaturaliste = false;
+// ---------- Naturaliste ----------
+let optNaturaliste = false
+if (localStorage.getItem("saveChapt") !== null) {
+    optNaturaliste = Boolean(localStorage.getItem("optNaturaliste"))
+}
 let toggleNaturaliste = function() {
     optNaturaliste = true;
+    localStorage.setItem("optNaturaliste", optNaturaliste);
     goToChapter("coupDeFil")
 }
-
+// ---------- Feuille et Crayon ----------
 let optFeuilleCrayon = false;
 let toggleFeuilleCrayon = function() {
     optFeuilleCrayon = true;
     goToChapter("depart")
 }
-
-let optPiedDeBiche = false;
+// ---------- Pied de Biche ----------
+let optPiedDeBiche = false
+if (localStorage.getItem("saveChapt") !== null) {
+    optPiedDeBiche = Boolean(localStorage.getItem("optPiedDeBiche"))
+}
 let togglePiedDeBiche = function() {
     optPiedDeBiche = true;
+    localStorage.setItem("optPiedDeBiche", optPiedDeBiche);
     goToChapter("depart")
 }
-
+// ---------- Mariage ----------
 let optBagueMariage = false;
 let toggleBagueMariage = function() {
     optBagueMariage = true;
     goToChapter("depart")
 }
-
+// ---------- Naturalise / PiedDeBiche / normal ----------
 let actNaturaliste = function() {
     if (optNaturaliste == true) {
         goToChapter("mortNaturaliste")
         optNaturaliste = false;
         optPiedDeBiche = false;
+        localStorage.removeItem("optNaturaliste");
+        localStorage.removeItem("optPiedDeBiche");
     } else if (optNaturaliste == false && optPiedDeBiche == true) {
         goToChapter("arriverFetePiedDeBiche")
-        optPiedDeBiche = false;
     } else {
         goToChapter("arriverFete")
     }
 }
 
-// ------------------------------------------------------------------------------------------------------
+// ------------------------------------------------- Function goToChapter -----------------------------------------------------
 
 let goToChapter = function(chapterName) {
+// ---------- sound effect bouton ----------
+    let btnSound = document.querySelector(".btnSound")
+    btnSound.pause()
+    btnSound.currentTime = 0
+    btnSound.play()
+// ---------- titre et texte ----------
     console.log(chapterObj[chapterName].subtitle);
     console.log(chapterObj[chapterName].texte);
     console.log(chapterObj[chapterName].img);
     console.log(chapterObj[chapterName].options);
     document.querySelector(".titre").innerHTML = chapterObj[chapterName].subtitle;
     document.querySelector(".texte").innerHTML = chapterObj[chapterName].texte;
-    document.querySelector(".image").src = chapterObj[chapterName].img;
+    let mesVideos =  document.querySelector(".videoZone")
+    let mesImages = document.querySelector(".image")
 
+// ---------- mes videos et images ----------
+    if (chapterObj[chapterName].video !== undefined) {
+        mesImages.classList.add("imageFalse")
+        mesVideos.classList.remove("imageFalse")
+        mesVideos.src = chapterObj[chapterName].video
+        mesVideos.play()
+    } else {
+        mesVideos.classList.add("imageFalse")
+        mesImages.classList.remove("imageFalse")
+        mesImages.src = chapterObj[chapterName].img;
+    }
+// ---------- creation des boutons ----------
    document.querySelector(".options").innerHTML=""
     for (i in chapterObj[chapterName].options) {
         const btn = document.createElement("button")
@@ -225,5 +256,12 @@ let goToChapter = function(chapterName) {
         const parent = document.querySelector(".options")
         parent.appendChild(btn)
     }
+// ---------- localstorage ----------
+    localStorage.setItem("saveChapt", chapterName);
 };
+
+if (localStorage.getItem("saveChapt") !== null) {
+goToChapter(localStorage.getItem("saveChapt"))
+} else {
 goToChapter("contexte")
+}
