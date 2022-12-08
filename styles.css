@@ -122,3 +122,39 @@ body {
     background: linear-gradient(0deg,#690000, #D30000);
     scale: 105%;
 }
+
+.menu-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0px;
+    padding: 0 10%;
+}
+
+.reset-bouton, .mute-bouton {
+    background: linear-gradient(0deg,#1E1E1E, #323231);
+    width: 40%;
+    height: clamp(24px, 4vh, 40px);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    text-align: center;
+    font-size: clamp(14px, 3vh, 20px);
+    line-height: clamp(24px, 4vh, 40px);
+    z-index: 1;
+    margin-bottom: clamp(10px, 2vh, 20px);
+    transition-duration: 0.3s;
+    border: 0px;
+}
+
+.reset-bouton:hover, .mute-bouton:hover {
+    background: linear-gradient(0deg,#690000, #D30000);
+    scale: 105%;
+}
+
+.mortNaturaliste, .mortEnHero {
+    background-image: linear-gradient(25deg,#740404, #D30000, #740404);
+}
+.youDidIt {
+    background-image: linear-gradient(25deg,#BC009D, #FF60E5, #BC009D);
+}
